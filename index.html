@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Danilo Nacua Jr. — IT Level 2 Support & Cybersecurity</title>
+  <meta name="description" content="Portfolio — Danilo Nacua Jr. | IT Level 2 Support Specialist | Cybersecurity Enthusiast | Network & Security Focus" />
+  <style>
+    /* ---------- Root Theme ---------- */
+    :root{
+      --bg: #071127;
+      --card: #0f2033;
+      --muted: #9fb0ca;
+      --text: #dbeaf6;
+      --accent: #4fe3d0;
+      --accent-2: #4aa6ff;
+      --glass: rgba(255,255,255,0.03);
+      --radius: 12px;
+      --shadow: 0 8px 30px rgba(8, 8, 10, 0.6);
+      --maxw: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg,var(--bg), #020617 120%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding-bottom:60px;
+    }
+
+    /* ---------- Layout ---------- */
+    .wrap{
+      max-width:var(--maxw);
+      margin:30px auto;
+      padding:24px;
+    }
+    header.hero{
+      display:grid;
+      grid-template-columns: 220px 1fr;
+      gap:28px;
+      align-items:center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--shadow);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    /* Profile */
+    .profile {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:16px;
+    }
+    .avatar{
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      overflow:hidden;
+      border:4px solid rgba(79,227,208,0.12);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg,#071127, #0b2b3a);
+      box-shadow: 0 8px 20px rgba(11,37,52,0.6);
+    }
+    .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .title-small{ color:var(--muted); font-size:0.95rem; text-align:center }
+    .cta-row{ display:flex; gap:10px; align-items:center }
+
+    .btn {
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:10px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#04111a;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow: 0 6px 18px rgba(78,226,209,0.12);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .btn.secondary{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,0.04);
+      font-weight:600;
+    }
+
+    /* Intro */
+    .intro {
+      padding:6px 2px;
+    }
+    h1{
+      margin:0 0 6px 0;
+      font-size:1.6rem;
+      letter-spacing:0.2px;
+      color:var(--accent);
+    }
+    .headline{
+      margin:0 0 12px 0;
+      color:var(--text);
+      font-weight:600;
+    }
+    .summary{
+      color:var(--muted);
+      margin:6px 0 0 0;
+    }
+
+    /* Grid sections */
+    .grid {
+      display:grid;
+      grid-template-columns: 1fr 380px;
+      gap:26px;
+      margin-top:28px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
+      border-radius:12px;
+      padding:20px;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 10px 30px rgba(3,8,16,0.6);
+    }
+
+    h2.section-title{
+      margin:0 0 16px 0;
+      font-size:1.05rem;
+      color:var(--accent-2);
+      display:flex; align-items:center; gap:10px;
+    }
+    .muted { color:var(--muted); font-size:0.95rem }
+
+    /* Experience list */
+    .exp-list{ display:flex; flex-direction:column; gap:12px }
+    .exp-item{
+      background:var(--glass);
+      padding:12px;
+      border-radius:10px;
+      border-left:4px solid rgba(74,166,255,0.12);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .exp-item:hover{ transform: translateY(-6px); box-shadow: 0 12px 30px rgba(5,10,20,0.6) }
+
+    .exp-item h3{ margin:0; color:var(--text); font-size:1rem }
+    .exp-item .meta{ color:var(--muted); font-size:0.9rem; margin:6px 0 8px 0 }
+    .exp-item p{ margin:0; color:var(--muted); font-size:0.95rem }
+
+    /* Skills grid */
+    .skills-grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:8px;
+    }
+    .skill-chip{
+      background: linear-gradient(90deg, rgba(79,227,208,0.04), rgba(74,166,255,0.02));
+      padding:10px 12px;
+      border-radius:10px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      border:1px solid rgba(255,255,255,0.02);
+      font-weight:600;
+      color:var(--text);
+    }
+    .skill-chip small{ color:var(--muted); font-weight:600; display:block; font-size:0.85rem }
+
+    /* Certifications */
+    .cert-grid{ display:flex; flex-direction:column; gap:12px }
+    .cert-card{
+      display:flex; gap:12px; align-items:flex-start;
+      background: linear-gradient(180deg, rgba(255,255,255,0.014), rgba(255,255,255,0.01));
+      padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,0.02)
+    }
+    .cert-thumb{
+      width:68px; height:68px; border-radius:8px; overflow:hidden; background:#031923;
+      display:flex; align-items:center; justify-content:center; font-weight:700;
+      color:var(--accent);
+      border:1px solid rgba(255,255,255,0.02)
+    }
+    .cert-body h4{ margin:0 0 6px 0; font-size:0.98rem; color:var(--text) }
+    .cert-body p{ margin:0; color:var(--muted); font-size:0.88rem }
+
+    .cert-actions{ margin-top:8px; display:flex; gap:8px; align-items:center; }
+    .link-btn{ background:transparent; color:var(--accent); border:1px solid rgba(79,227,208,0.06); padding:8px 10px; border-radius:8px; font-weight:700; text-decoration:none}
+
+    /* Right column cards */
+    .right .card { margin-bottom:18px }
+    .skills-meter { display:flex; flex-direction:column; gap:10px }
+    .meter-row{ display:flex; justify-content:space-between; align-items:center; gap:12px }
+    .meter-name{ color:var(--muted); font-weight:600; font-size:0.95rem; width:30% }
+    .meter-bar{ flex:1; height:12px; background: rgba(255,255,255,0.03); border-radius:8px; overflow:hidden; position:relative; border:1px solid rgba(255,255,255,0.02) }
+    .meter-fill{ height:100%; background: linear-gradient(90deg,var(--accent),var(--accent-2)); border-radius:8px 0 0 8px; width:0%; transition: width 1s cubic-bezier(.2,.9,.2,1) }
+
+    /* contact */
+    .contact-list{ display:flex; flex-direction:column; gap:8px }
+    .contact-list a{ color:var(--text); text-decoration:none; font-weight:600; display:inline-flex; gap:8px; align-items:center }
+
+    /* footer */
+    footer{ text-align:center; color:var(--muted); margin-top:30px; font-size:0.95rem }
+
+    /* responsive */
+    @media (max-width:980px){
+      .grid{ grid-template-columns: 1fr; }
+      header.hero{ grid-template-columns: 140px 1fr; padding:18px; gap:14px }
+      .avatar{ width:140px; height:140px }
+    }
+    @media (max-width:520px){
+      .avatar{ width:110px; height:110px }
+      h1{ font-size:1.2rem }
+      .headline{ font-size:0.98rem }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- HERO -->
+    <header class="hero card" aria-label="Hero">
+      <div class="profile" role="region" aria-labelledby="name">
+        <div class="avatar" aria-hidden="false">
+          <!-- Replace src with your photo -->
+          <img src="profile.jpg" alt="Danilo Nacua Jr. profile photo" onerror="this.src='https://placehold.co/400x400?text=Profile'">
+        </div>
+        <div style="text-align:center">
+        <div class="title-small">IT Level 2 Support | Cybersecurity Enthusiast</div>
+        <div class="muted" style="font-size:0.9rem">Network & Security Fundamentals  Cisco Learning Network</div>
+        </div>
+
+
+        <div class="cta-row">
+          <a class="btn" href="#contact">Contact</a>
+          <a class="btn secondary" href="DNACUAJR_RESUME.pdf" target="_blank" rel="noopener">Download Resume</a>
+        </div>
+      </div>
+
+      <div class="intro" role="main">
+        <h1 id="name">Danilo Nacua Jr.</h1>
+        <div class="headline">Cybersecurity & Network Security Fundamentals • Cisco Learning Network</div>
+        <p class="summary">
+          I solve complex technical incidents, secure endpoints and networks, and help teams stay productive. Over 10 years supporting users, 4+ years professionally in IT operations,
+          with hands-on Cisco training and IBM AI fundamentals. I focus on practical defense, reliable systems, and continuous learning.
+        </p>
+
+        <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="link-btn" href="#certifications">Certifications</a>
+          <a class="link-btn" href="#experience">Experience</a>
+          <a class="link-btn" href="#contact">Skills</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN GRID -->
+    <div class="grid">
+      <!-- LEFT COLUMN -->
+      <div>
+        <!-- EXPERIENCE -->
+        <section id="experience" class="card" aria-labelledby="exp-title">
+          <h2 class="section-title" id="exp-title">Experience</h2>
+          <div class="exp-list">
+            <article class="exp-item" aria-labelledby="exp-1">
+              <h3 id="exp-1">IT Helpdesk Level 2 Support — SupportZebra</h3>
+              <div class="meta">Mar 2023 – Aug 2025 · Cagayan De Oro City</div>
+              <p>Handled escalated IT issues, user account management, and system setups. Ensured SLA-driven ticket resolution, supported internal tools & workflows, and performed root-cause analysis for recurring incidents.</p>
+            </article>
+
+            <article class="exp-item" aria-labelledby="exp-2">
+              <h3 id="exp-2">IT Support I — SupportZebra</h3>
+              <div class="meta">Sep 2021 – Mar 2023</div>
+              <p>Provided end-user desktop support, account provisioning, and routine system maintenance across departments. Assisted with software rollouts and user training for internal tools.</p>
+            </article>
+
+            <article class="exp-item" aria-labelledby="exp-3">
+              <h3 id="exp-3">System Administrator (Intern) — LGU Jasaan</h3>
+              <div class="meta">Dec 2021 – Feb 2022</div>
+              <p>Assisted with local IT infrastructure management, network maintenance, and account administration. Supported on-site troubleshooting and documentation for municipal systems.</p>
+            </article>
+
+            <article class="exp-item" aria-labelledby="exp-4">
+              <h3 id="exp-4">IT Support Assistant (Contract) — SupportZebra</h3>
+              <div class="meta">Jul 2019 – Sep 2019</div>
+              <p>Contract role supporting end-users, resolving software/hardware issues, and maintaining logs and troubleshooting documentation.</p>
+            </article>
+
+            <article class="exp-item" aria-labelledby="exp-5">
+              <h3 id="exp-5">Computer Services — Self-employed</h3>
+              <div class="meta">Jul 2015 – Present</div>
+              <p>Freelance PC/Laptop repair, software installs, and basic network setups for individuals and small businesses. On-site & remote troubleshooting and client support.</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- CERTIFICATIONS -->
+        <section id="certifications" class="card" aria-labelledby="cert-title" style="margin-top:22px;">
+          <h2 class="section-title" id="cert-title">Certifications & Training</h2>
+          <div class="cert-grid">
+            <div class="cert-card">
+              <div class="cert-thumb">IBM</div>
+              <div class="cert-body">
+                <h4>AI Fundamentals — IBM SkillsBuild (via Cisco)</h4>
+                <p class="muted">Issued May 2025 — Basics of ML, deep learning, NLP, and computer vision. Hands-on with IBM Watson Studio. Skills: Artificial Intelligence (AI), Ethics in AI.</p>
+                <div class="cert-actions">
+                  <a class="link-btn" href="IBM Cert.pdf" target="_blank" rel="noopener">View credential</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-thumb">CISCO</div>
+              <div class="cert-body">
+                <h4>Endpoint Security — Cisco</h4>
+                <p class="muted">Issued May 2025 — Student-level credential covering endpoint protection, OS security concepts, and network security fundamentals.</p>
+                <div class="cert-actions">
+                  <a class="link-btn" href="Endpoint Cert.pdf" target="_blank" rel="noopener">View credential</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-thumb">CISCO</div>
+              <div class="cert-body">
+                <h4>Introduction to Cybersecurity — Cisco</h4>
+                <p class="muted">Issued Feb 2025 — Core cybersecurity principles, threat detection & privacy fundamentals. Skills: Threat detection, privacy & data confidentiality.</p>
+                <div class="cert-actions">
+                  <a class="link-btn" href="Introduction_to_Cybersecurity_certificate.pdf" target="_blank" rel="noopener">View credential</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-thumb">CISCO</div>
+              <div class="cert-body">
+                <h4>Network Support & Security — Cisco</h4>
+                <p class="muted">Issued Sep 2024 — Hands-on labs for endpoint, network support, and troubleshooting (Packet Tracer activities).</p>
+                <div class="cert-actions">
+                  <a class="link-btn" href="Network_Support_and_Security_certificate.pdf" target="_blank" rel="noopener">View credential</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-thumb">CISCO</div>
+              <div class="cert-body">
+                <h4>Network Addressing & Basic Troubleshooting — Cisco</h4>
+                <p class="muted">Issued Jul 2024 — IPv6 addressing, neighbor discovery, cabling, and Packet Tracer practice labs.</p>
+                <div class="cert-actions">
+                  <a class="link-btn" href="Network_Addressing_and_Basic_Troubleshooting_certificate.pdf" target="_blank" rel="noopener">View credential</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education" class="card" style="margin-top:22px;">
+          <h2 class="section-title">Education</h2>
+          <div style="display:flex;gap:12px;align-items:center">
+            <div style="flex:1">
+              <h3 style="margin:0">B.S. in Information Technology</h3>
+              <div class="muted" style="margin:6px 0">University of Science and Technology of Southern Philippines (2016 – 2020)</div>
+              <p class="muted" style="margin:0">Core focus: networking, systems, and practical IT operations.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <aside class="right">
+        <div class="card">
+          <h2 class="section-title">Core Skills</h2>
+          <div class="skills-grid" id="skills-grid">
+            <!-- Skill chips -->
+            <div class="skill-chip"><span>Networking</span><small>TCP/IP, DNS, DHCP, VPN</small></div>
+            <div class="skill-chip"><span>Endpoint Security</span><small>Defender, AV, Hardening</small></div>
+            <div class="skill-chip"><span>Active Directory</span><small>User & Group Management</small></div>
+            <div class="skill-chip"><span>Office 365 / AzureAD</span><small>Administration & Support</small></div>
+            <div class="skill-chip"><span>IT Support</span><small>Ticketing, SLA, Onsite/Remote</small></div>
+            <div class="skill-chip"><span>AI Fundamentals</span><small>ML, NLP, IBM Watson Studio</small></div>
+            <div class="skill-chip"><span>Troubleshooting</span><small>Root-cause analysis</small></div>
+            <div class="skill-chip"><span>Linux & Scripting</span><small>Shell, Python basics</small></div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <h2 class="section-title">Skill Proficiency</h2>
+          <div class="skills-meter">
+            <div class="meter-row">
+              <div class="meter-name">Network Troubleshooting</div>
+              <div class="meter-bar"><div class="meter-fill" data-fill="88%"></div></div>
+            </div>
+            <div class="meter-row">
+              <div class="meter-name">Endpoint Security</div>
+              <div class="meter-bar"><div class="meter-fill" data-fill="82%"></div></div>
+            </div>
+            <div class="meter-row">
+              <div class="meter-name">Active Directory</div>
+              <div class="meter-bar"><div class="meter-fill" data-fill="85%"></div></div>
+            </div>
+            <div class="meter-row">
+              <div class="meter-name">AI & Data Basics</div>
+              <div class="meter-bar"><div class="meter-fill" data-fill="60%"></div></div>
+            </div>
+            <div class="meter-row">
+              <div class="meter-name">Scripting (Python)</div>
+              <div class="meter-bar"><div class="meter-fill" data-fill="48%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <h2 class="section-title">Quick Facts</h2>
+          <ul style="padding-left:16px; margin:0">
+            <li class="muted">10+ years providing computer services (freelance) • Jul 2015 – Present</li>
+            <li class="muted" style="margin-top:6px">4+ years professional IT experience • Hands-on Cisco training</li>
+            <li class="muted" style="margin-top:6px">Strong communicator • Root cause analyst • User-focused</li>
+          </ul>
+        </div>
+
+        <div class="card" id="contact" style="margin-top:18px">
+          <h2 class="section-title">Contact</h2>
+          <div class="contact-list">
+            <a href="mailto:dnacuajr@gmail.com">✉️ dnacuajr@gmail.com</a>
+            <a href="https://www.linkedin.com/in/danilo-nacua-jr-1a414417a/" target="_blank" rel="noopener">🔗 linkedin.com/in/danilo-nacua-jr-1a414417a</a>
+            
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Danilo Nacua Jr. — IT Level 2 Support & Cybersecurity Enthusiast
+    </footer>
+  </div>
+
+  <script>
+    // set copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // animate skill meters on load
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.meter-fill').forEach((el, idx) => {
+        const target = el.getAttribute('data-fill') || '60%';
+        setTimeout(() => { el.style.width = target; }, 120 * idx);
+      });
+    });
+
+    // Accessible focus for keyboard users: add outline on focus-visible
+    (function() {
+      function handleFirstTab(e) {
+        if (e.key === 'Tab') {
+          document.documentElement.classList.add('show-focus');
+          window.removeEventListener('keydown', handleFirstTab);
+        }
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
+</body>
+</html>
